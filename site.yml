@@ -1,0 +1,10 @@
+---
+- hosts: all
+  vars_files:
+    - [ "roles/common/vars/{{ ansible_os_family }}.yml","roles/common/vars/defaults.yml" ]
+  roles:
+    - common
+    - { role: syslog-server, when: "ansible_hostname == syslog_server" }
+
+  handlers:
+    - include: roles/common/handlers/main.yml

@@ -1,0 +1,8 @@
+localhost ansible_connection=local
+
+[workers]
+worker1
+worker2
+
+[logservers]
+log1

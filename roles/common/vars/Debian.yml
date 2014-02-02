@@ -1,0 +1,8 @@
+---
+# vars file for syslog
+
+#syslog_server: log1 # Defined in defaults/main.yml. Uncomment to override
+syslog_conf_file: "50-default.conf"
+syslog_conf_path: "/etc/rsyslog.d/"
+install_packages:
+  - rsyslog

@@ -1,0 +1,3 @@
+---
+# defaults file for syslog
+syslog_server: log1

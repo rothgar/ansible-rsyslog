@@ -1,0 +1,8 @@
+---
+# vars file for syslog
+
+#syslog_server: log1 # defined in defaluts/main.yml. Uncomment to override
+syslog_conf_file: "rsyslog.conf"
+syslog_conf_path: "/etc/"
+install_packages:
+  - rsyslog
