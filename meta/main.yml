@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Justin Garrison 
-  description: rsyslog client
+  description: rsyslog client and server
   company: 
   license: BSD
   min_ansible_version: 1.2
