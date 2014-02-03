@@ -1,5 +1,8 @@
 - name: "Build hosts file"
-  template: src=hosts.j2 dest=/etc/hosts mode=0644 owner=root group=root backup=yes
+#  template: src=hosts.j2 dest=/etc/hosts mode=0644 owner=root group=root backup=yes
+  lineinfile: dest=/etc/hosts regexp='.*{{ item }}$' line='${hostvars.${item}.ansible_default_ipv4.address} ${item}' state=present
+  only_if: is_set('${hostvars.${item}.ansible_default_ipv4.address}')
+  with_items: groups['all']
 
 - name: "Install packages"
   yum: name={{ item }} state=installed

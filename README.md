@@ -1,22 +1,36 @@
-syslog
+rsyslog
 ========
 
-This playbook will configure syslog for clients and servers.
+This playbook will configure rsyslog for clients and servers. Only one server is supported and clients will be configured to send logs to the server via UDP.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by the ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+roles/common/defaults/main.yml
+syslog_server: log1
+If you want a different logging server it is best to configure that in one of the vars/*.yml files. This was set here as a catchall in case it was missed somewhere else.
+
+roles/common/vars/defaults.yml
+syslog_conf_file: rsyslog.conf
+Configuration file for rsyslog
+syslog_conf_path: /etc/
+Path for rsyslog config file
+
+roles/common/vars/{{ ansible_os_family }}.yml
+syslog_server - commented out by default, will override defaults/main.yml if set
+syslog_conf_file - specific rsyslog conf file name for distribution
+syslog_conf_path - specific rsyslog path for distribution
+install_packages - packages needed for rsyslog
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 License
 -------

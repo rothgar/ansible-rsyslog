@@ -1,5 +1,0 @@
-# Auto-generated /etc/hosts via Ansible
-127.0.0.1 localhost {{ ansible_hostname }}
-{% for k,v in hostvars.iteritems() %}
-  {{ v['ansible_eth0'] }} {{ v['ansible_hostname'] }}
-{% endfor %}

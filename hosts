@@ -1,8 +1,7 @@
-localhost ansible_connection=local
+#localhost ansible_connection=local
 
 [workers]
-worker1
-worker2
+10.0.2.15 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222
 
 [logservers]
-log1
+#log1
